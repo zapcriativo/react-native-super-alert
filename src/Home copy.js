@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 
 export class Home extends Component {
+
+    // showAlert = () => {
+    //     console.log('Hello World');
+    // }
+
     render() {
         return (
             <View>
@@ -14,6 +19,10 @@ export class Home extends Component {
                         alert(
                             'Dialog Title',
                             'This is model of default alert, thanks for use the component',
+                            {
+                                textConfirm: 'blabla',
+                                type: 'BottomSheet'
+                            },
                         )
                     }
                 >
@@ -27,9 +36,6 @@ export class Home extends Component {
                         alert(
                             'Default Dialog Confirm',
                             'This is model of default alert, thanks for use the component',
-                            'Alert',
-                            'Confirm',
-                            'Cancel'
                         )
                     }
                 >

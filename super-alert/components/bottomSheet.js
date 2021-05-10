@@ -21,7 +21,7 @@ export default (props) => {
                 </Text>
                 <Button
                     onPress={close}
-                    title={buttonText}
+                    title={'efneai'}
                     color="#841584"
                     accessibilityLabel="Learn more about this purple button"
                     style={styles.button}

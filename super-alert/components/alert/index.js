@@ -15,8 +15,14 @@ const springValue = new Animated.Value(0);
 
 export default (props) => {
 
-    const { isOpen, close, buttonText, title, message, textConfirm, textCancel } = props;
-    const [visible, setVisible] = useState(false)
+    const { isOpen, close, confirm, cancel, title, message, settings } = props;
+    const { type, textConfirm, textCancel } = props.settings;
+
+    const [visible, setVisible] = useState(isOpen)
+
+    useEffect(() => {
+        setVisible(isOpen)
+    }, [isOpen])
 
     useEffect(() => {
         Animated.spring(springValue, {
@@ -30,13 +36,12 @@ export default (props) => {
 
     return (
         <Modal
-            visible={true}
+            visible={visible}
             transparent
             animationType="none"
             supportedOrientations={SUPPORTED_ORIENTATIONS}
             onRequestClose={springValue.setValue(0)}
         >
-
             <TouchableOpacity
                 activeOpacity={1}
                 style={[styles.BackgroundMask]}
@@ -46,21 +51,16 @@ export default (props) => {
                     <Text style={styles.message}>{message}</Text>
 
                     <View style={styles.containerButtons}>
-
                         {textCancel && (
-                            <TouchableOpacity style={[styles.button, styles.buttonCancel]} onPress={close}>
+                            <TouchableOpacity style={[styles.button, styles.buttonCancel]} onPress={cancel}>
                                 <Text style={[styles.textButton, styles.textButtonCancel]}>{textCancel}</Text>
                             </TouchableOpacity>
                         )}
 
-                        {textConfirm && (
-                            <TouchableOpacity style={[styles.button, styles.buttonConfirm]} onPress={close}>
-                                <Text style={[styles.textButton, styles.textButtonConfirm]}>{textConfirm}</Text>
-                            </TouchableOpacity>
-                        )}
-
+                        <TouchableOpacity style={[styles.button, styles.buttonConfirm]} onPress={confirm}>
+                            <Text style={[styles.textButton, styles.textButtonConfirm]}>{textConfirm}</Text>
+                        </TouchableOpacity>
                     </View>
-
                 </Animated.View>
             </TouchableOpacity>
         </Modal>
