@@ -54,7 +54,7 @@ export default props => {
         switch (alertState.settings.type) {
           case 'Alert':
             return (
-              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel}/>
+              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} />
             )
           case 'BottomSheet':
             return (
@@ -62,7 +62,7 @@ export default props => {
             )
           default:
             return (
-              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel}/>
+              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} />
             )
         }
       })()}

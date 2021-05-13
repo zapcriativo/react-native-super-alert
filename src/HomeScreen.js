@@ -15,9 +15,75 @@ function HomeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
-      <Text>Home Screen</Text>
+      <Text style={{fontWeight: 'bold', fontSize: 30}}>Hello!</Text>
+      <Text style={{marginBottom: 20, marginTop: 10}}>This is a Super Alert Example APP!</Text>
+
+      {/* EXAMPLE ALERT SIMPLE ================================== */}
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          alert(
+            'Simple Alert',
+            "Hello, I'm the example of Simple Alert",
+          )
+        }
+      >
+        <Text style={styles.buttonText}>Simple Alert</Text>
+      </TouchableOpacity>
+
+
+      {/* EXAMPLE ALERT FROM TOP ================================== */}
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          alert(
+            'Simple Alert Top',
+            "Hello, I'm the example of Simple Alert",
+            {
+              SlideFrom: 'top',
+            },
+          )
+        }
+      >
+        <Text style={styles.buttonText}>Simple Alert Top</Text>
+      </TouchableOpacity>
+
+      {/* EXAMPLE ALERT FROM TOP ================================== */}
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          alert(
+            'Simple Alert Top',
+            "Hello, I'm the example of Simple Alert",
+            {
+              SlideFrom: 'bottom',
+            },
+          )
+        }
+      >
+        <Text style={styles.buttonText}>Simple Alert Bottom</Text>
+      </TouchableOpacity>
 
       {/* EXAMPLE ALERT ================================== */}
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          alert(
+            'Confirm Alert',
+            'This is model of Confirm Alert, with me you can use callback functions',
+            {
+              textConfirm: 'Confirmar',
+              textCancel: 'Cancelar',
+              onConfirm: () => confirmClick(),
+              onCancel: () => cancelClick()
+            },
+          )
+        }
+      >
+        <Text style={styles.buttonText}>Confirm Alert</Text>
+      </TouchableOpacity>
+
+      {/* BOTTOM ALERT ================================== */}
       <TouchableOpacity
         style={styles.buttonStyle}
         onPress={() =>
@@ -35,6 +101,8 @@ function HomeScreen({ navigation }) {
       >
         <Text style={styles.buttonText}>Default Dialog Example</Text>
       </TouchableOpacity>
+
+
 
       {/* EXAMPLE CONFIRM ================================== */}
       <TouchableOpacity
