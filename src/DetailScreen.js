@@ -12,17 +12,17 @@ function DetailsScreen({ navigation}) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
+      <Text style={{ fontWeight: 'bold', fontSize: 30 }}>Child Screen!</Text>
 
       {/* EXAMPLE ALERT ================================== */}
       <TouchableOpacity
         style={styles.buttonStyle}
         onPress={() =>
           alert(
-            'Dialog Title',
+            'Alert inside of home',
             'This is model of default alert, thanks for use the component',
             {
-              textConfirm: 'Confirma Tela Detalhes',         
+              textConfirm: 'Go back to home!',         
               onConfirm: () => DetailConfirm(),  
             },
           )

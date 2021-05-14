@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { Animated, Easing, Text, TouchableOpacity, Modal, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Animated, Text, TouchableOpacity, Modal, View, Dimensions } from 'react-native';
 
 import styles from "./styles";
+
+const windowWidth = Dimensions.get('screen').width;
 
 const SUPPORTED_ORIENTATIONS = [
     "portrait",
@@ -26,68 +28,75 @@ export default (props) => {
     const [justifyContent, setjustifyContent] = useState('')
 
     useEffect(() => {
-        console.log('esse 1')
-
-        switch (SlideFrom) {
-            case 'top':
-                setjustifyContent('flex-start')
-                setValueXY(new Animated.ValueXY({ x: 0, y: -120 }))
-                setvalueEnd({ x: 0, y: 40 })
-                setvalueStart({ x: 0, y: -120 })
-                break;
-            case 'right':
-
-                break;
-            case 'bottom':
-                setjustifyContent('flex-end')
-                setValueXY(new Animated.ValueXY({ x: 0, y: 120 }))
-                setvalueEnd({ x: 0, y: -40 })
-                setvalueStart({ x: 0, y: 120 })
-                break;
-            case 'left':
-
-                break;
-            default:
-                break;
+        if (SlideFrom) {
+            switch (SlideFrom) {
+                case 'top':
+                    setjustifyContent('flex-start')
+                    setValueXY(new Animated.ValueXY({ x: 0, y: -120 }))
+                    setvalueEnd({ x: 0, y: 40 })
+                    setvalueStart({ x: 0, y: -120 })
+                    break;
+                case 'right':
+                    setjustifyContent('center')
+                    setValueXY(new Animated.ValueXY({ x: windowWidth, y: 0 }))
+                    setvalueEnd({ x: 0, y: 0 })
+                    setvalueStart({ x: windowWidth, y: 0 })
+                    break;
+                case 'bottom':
+                    setjustifyContent('flex-end')
+                    setValueXY(new Animated.ValueXY({ x: 0, y: 120 }))
+                    setvalueEnd({ x: 0, y: -40 })
+                    setvalueStart({ x: 0, y: 120 })
+                    break;
+                case 'left':
+                    setjustifyContent('center')
+                    setValueXY(new Animated.ValueXY({ x: -windowWidth, y: 0 }))
+                    setvalueEnd({ x: 0, y: 0 })
+                    setvalueStart({ x: -windowWidth, y: 0 })
+                    break;
+                default:
+                    break;
+            }
         }
-    },[SlideFrom])
+    }, [SlideFrom])
 
+    // GET PROPS AND CHANGE STATE VISIBLE
     useEffect(() => {
-        console.log('esse 2')
-
         setVisible(isOpen)
     }, [isOpen])
 
-    // useEffect(() => {
-    //     Animated.spring(springValue, {
-    //         toValue: 1,
-    //         speed: 10,
-    //         bounciness: 7,
-    //         velocity: 5,
-    //         useNativeDriver: false
-    //     }).start();
-    // }, [visible])
-
+    // OPEN ANIMATION
     useEffect(() => {
-        console.log('esse 3')
-        console.log(valueXY)
-        console.log(valueEnd)
-
-        Animated.timing(valueXY, {
-            toValue: valueEnd,
-            duration: 280,
-            friction: 4,
-            useNativeDriver: useNativeDriver ? useNativeDriver : false
-        }).start();
+        if (SlideFrom) {
+            Animated.timing(valueXY, {
+                toValue: valueEnd,
+                duration: 280,
+                friction: 4,
+                useNativeDriver: useNativeDriver ? useNativeDriver : false
+            }).start();
+        } else {
+            Animated.spring(springValue, {
+                toValue: 1,
+                speed: 10,
+                bounciness: 7,
+                velocity: 5,
+                useNativeDriver: false
+            }).start();
+        }
     }, [visible])
 
+    // CLOSE ANIMATION 
     function closeModal(value) {
-        Animated.timing(valueXY, {
-            toValue: valueStart,
-            duration: 280,
-            friction: 4,
-            useNativeDriver: useNativeDriver ? useNativeDriver : false
-        }).start(() => { value == 'confirm' ? confirm() : cancel() })
+        if (SlideFrom) {
+            Animated.timing(valueXY, {
+                toValue: valueStart,
+                duration: 280,
+                friction: 4,
+                useNativeDriver: useNativeDriver ? useNativeDriver : false
+            }).start(() => { value == 'confirm' ? confirm() : cancel() })
+        } else {
+            value == 'confirm' ? confirm() : cancel()
+        }
     }
 
     return (
@@ -99,16 +108,15 @@ export default (props) => {
         >
             <TouchableOpacity
                 activeOpacity={1}
-                style={[styles.BackgroundMask, { justifyContent: SlideFrom == 'top' || 'bottom' ? justifyContent : '' }]}
-            >
+                style={[styles.BackgroundMask,
+                {
+                    justifyContent: SlideFrom ? justifyContent : 'center',
+                }
+                ]}>
                 <Animated.View style={[
                     styles.container,
-                    { transform: valueXY.getTranslateTransform() }
+                    { transform: SlideFrom ? valueXY.getTranslateTransform() : [{ scale: springValue }] }
                 ]}>
-
-                    {/* // { transform: [{ scale: springValue }] } */}
-
-
                     <Text style={styles.title}>{title}</Text>
                     <Text style={styles.message}>{message}</Text>
 

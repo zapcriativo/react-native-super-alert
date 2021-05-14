@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+const windowWidth = Dimensions.get('screen').width;
 
 const styles = StyleSheet.create({
   BackgroundMask: {
@@ -7,13 +8,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    justifyContent: 'flex-end'
   },
   container: {
     backgroundColor: "#FFF",
-    maxWidth: 390,
-    width: 280,
+    maxWidth: windowWidth,
+    width: windowWidth,
+    height: 180,
     marginHorizontal: 30,
-    borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     position: 'absolute',
     padding: 10,
   },

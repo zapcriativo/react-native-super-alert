@@ -1,4 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, StatusBar, NativeModules} from "react-native";
+
+const windowWidth = Dimensions.get('screen').width;
+
+// STATUS BAR SIZE
+const { StatusBarManager } = NativeModules;
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBarManager.HEIGHT;
 
 const styles = StyleSheet.create({
   BackgroundMask: {
@@ -7,19 +13,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    justifyContent: 'flex-start'
   },
   container: {
     backgroundColor: "#FFF",
-    maxWidth: 390,
-    width: 280,
+    maxWidth: windowWidth,
+    width: windowWidth,
+    height: 180,
     marginHorizontal: 30,
-    borderRadius: 10,
     position: 'absolute',
     padding: 10,
+    paddingTop: STATUSBAR_HEIGHT + 5
   },
 
   title: {
-    textAlign: "center",
     fontSize: 18,
     color: "#333",
     fontWeight: "500",
@@ -27,7 +34,6 @@ const styles = StyleSheet.create({
   },
 
   message: {
-    textAlign: "center",
     fontSize: 16,
     color: "#666",
     marginVertical: 5
@@ -68,9 +74,7 @@ const styles = StyleSheet.create({
 
   textButtonCancel: {
     color: '#fff'
-  },
-
-
+  }
 });
 
 export default styles;

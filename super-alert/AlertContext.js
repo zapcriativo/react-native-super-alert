@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import Alert from './components/alert';
 import BottomSheet from './components/bottomSheet';
+import FlashMessage from './components/flashMessage'
 
 // DEFAULT ALERT PARAMS
 const initialState = {
@@ -52,13 +53,17 @@ export default props => {
       <Provider value={alert}>{props.children}</Provider>
       {(() => {
         switch (alertState.settings.type) {
-          case 'Alert':
+          case 'alert':
             return (
               <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} />
             )
-          case 'BottomSheet':
+          case 'bottomsheet':
             return (
-              <BottomSheet {...alertState} close={close} />
+              <BottomSheet {...alertState} close={close} confirm={confirm} cancel={cancel} />
+            )
+          case 'flashmessage':
+            return (
+              <FlashMessage {...alertState} close={close} confirm={confirm} cancel={cancel} />
             )
           default:
             return (
