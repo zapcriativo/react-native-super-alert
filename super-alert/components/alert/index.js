@@ -16,7 +16,7 @@ const SUPPORTED_ORIENTATIONS = [
 export default (props) => {
 
     const { isOpen, close, confirm, cancel, title, message, settings } = props;
-    const { type, textConfirm, textCancel, useNativeDriver, SlideFrom } = props.settings;
+    const { type, textConfirm, textCancel, useNativeDriver, position } = props.settings;
     const [visible, setVisible] = useState(isOpen)
 
     const springValue = new Animated.Value(0);
@@ -28,8 +28,8 @@ export default (props) => {
     const [justifyContent, setjustifyContent] = useState('')
 
     useEffect(() => {
-        if (SlideFrom) {
-            switch (SlideFrom) {
+        if (position) {
+            switch (position) {
                 case 'top':
                     setjustifyContent('flex-start')
                     setValueXY(new Animated.ValueXY({ x: 0, y: -120 }))
@@ -58,7 +58,7 @@ export default (props) => {
                     break;
             }
         }
-    }, [SlideFrom])
+    }, [position])
 
     // GET PROPS AND CHANGE STATE VISIBLE
     useEffect(() => {
@@ -67,7 +67,7 @@ export default (props) => {
 
     // OPEN ANIMATION
     useEffect(() => {
-        if (SlideFrom) {
+        if (position) {
             Animated.timing(valueXY, {
                 toValue: valueEnd,
                 duration: 280,
@@ -87,7 +87,7 @@ export default (props) => {
 
     // CLOSE ANIMATION 
     function closeModal(value) {
-        if (SlideFrom) {
+        if (position) {
             Animated.timing(valueXY, {
                 toValue: valueStart,
                 duration: 280,
@@ -103,19 +103,19 @@ export default (props) => {
         <Modal
             visible={visible}
             transparent
-            animationType="none"
+            animationType="fade"
             supportedOrientations={SUPPORTED_ORIENTATIONS}
         >
             <TouchableOpacity
                 activeOpacity={1}
                 style={[styles.BackgroundMask,
                 {
-                    justifyContent: SlideFrom ? justifyContent : 'center',
+                    justifyContent: position ? justifyContent : 'center',
                 }
                 ]}>
                 <Animated.View style={[
                     styles.container,
-                    { transform: SlideFrom ? valueXY.getTranslateTransform() : [{ scale: springValue }] }
+                    { transform: position ? valueXY.getTranslateTransform() : [{ scale: springValue }] }
                 ]}>
                     <Text style={styles.title}>{title}</Text>
                     <Text style={styles.message}>{message}</Text>

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Animated, Text, TouchableOpacity, Modal, View, Dimensions, } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { Animated, Text, TouchableOpacity, Modal, View, Dimensions, PanResponder } from 'react-native';
 
 import styles from "./styles";
 
 const windowWidth = Dimensions.get('screen').width;
-
 const SUPPORTED_ORIENTATIONS = [
     "portrait",
     "portrait-upside-down",
@@ -16,42 +15,71 @@ const SUPPORTED_ORIENTATIONS = [
 export default (props) => {
 
     const { isOpen, close, confirm, cancel, title, message, settings } = props;
-    const { flashMessageTimeout, TitleTextAlign, MessageTextAlign, textConfirm, textCancel, flashMessageHeight, useNativeDriver } = props.settings;
+    const { draggable, option, timeout, disableTimeout, TitleTextAlign, MessageTextAlign, textConfirm, textCancel, flashMessageHeight, useNativeDriver } = props.settings;
     const [visible, setVisible] = useState(isOpen)
+
+    let ColorTheme = {
+        success: {
+            backgroundColor: '#168031'
+        },
+        warning: {
+            backgroundColor: '#DB8739'
+        },
+        info: {
+            backgroundColor: '#165193'
+        },
+        danger: {
+            backgroundColor: '#b31c1c'
+        }
+    }
+
     let FlashTimeout
 
     const varflashMessageHeight = flashMessageHeight ? (-flashMessageHeight + (textCancel || textCancel ? -50 : 0)) : (-110 + (textCancel || textCancel ? -50 : 0))
-    const valueXY = new Animated.ValueXY({ x: 0, y: varflashMessageHeight })
+    let valueXY = new Animated.Value(varflashMessageHeight)
 
     // GET PROPS AND CHANGE STATE VISIBLE
     useEffect(() => {
         setVisible(isOpen)
     }, [isOpen])
 
+
+    // FUNCTION TO DRAGGABLE TO CLOSE FLASH MESSAGE
+    const panResponder = useRef(
+        PanResponder.create({
+            onStartShouldSetPanResponder: () => draggable ? draggable : true,
+            onPanResponderMove: (event, gestureState) => {
+                valueXY.setValue(Math.min(Math.max(gestureState.dy,varflashMessageHeight),0))
+            },
+            onPanResponderRelease: (e, gesture) => {
+                if (gesture.vy >= 0) return
+                    closeModal('close')
+            }
+        })
+    ).current;
+
     // OPEN ANIMATION
     useEffect(() => {
         Animated.timing(valueXY, {
-            toValue: { x: 0, y: 0 },
+            toValue: 0,
             duration: 280,
             friction: 4,
             useNativeDriver: useNativeDriver ? useNativeDriver : false
         }).start(() => {
-            if (flashMessageTimeout) FlashTimeout = setTimeout(() => {
-                console.log('pingou no timeout')
+            if (disableTimeout != true) FlashTimeout = setTimeout(() => {
                 closeModal('close')
-            }, flashMessageTimeout * 1000);
+            }, timeout ? timeout * 1000 : 5 * 1000);
         })
     }, [visible])
 
-    flashMessageTimeout
 
     // CLOSE ANIMATION 
     function closeModal(value) {
         clearTimeout(FlashTimeout)
         Animated.timing(valueXY, {
-            toValue: { x: 0, y: varflashMessageHeight },
+            toValue: varflashMessageHeight,
             duration: 280,
-            friction: 4,
+            friction: 2,
             useNativeDriver: useNativeDriver ? useNativeDriver : false
         }).start(() => {
             switch (value) {
@@ -69,32 +97,40 @@ export default (props) => {
             }
         })
     }
-
     return (
-        <Modal
-            visible={visible}
-            transparent
-            animationType="none"
-            supportedOrientations={SUPPORTED_ORIENTATIONS}
-        >
-            <TouchableOpacity activeOpacity={1} style={styles.BackgroundMask}>
-                <Animated.View style={[styles.container, { height: varflashMessageHeight }, { transform: valueXY.getTranslateTransform() }]}>
-                    {title != '' && (<Text style={[styles.title, { textAlign: TitleTextAlign ? TitleTextAlign : 'center' }]}>{title}</Text>)}
-                    <Text style={[styles.message, { textAlign: MessageTextAlign ? MessageTextAlign : 'center' }]}>{message}</Text>
-                    <View style={styles.containerButtons}>
-                        {textCancel && (
-                            <TouchableOpacity style={[styles.button, styles.buttonCancel]} onPress={() => closeModal('cancel')}>
-                                <Text style={[styles.textButton, styles.textButtonCancel]}>{textCancel}</Text>
-                            </TouchableOpacity>
-                        )}
-                        {textConfirm && (
-                            <TouchableOpacity style={[styles.button, styles.buttonConfirm]} onPress={() => closeModal('confirm')}>
-                                <Text style={[styles.textButton, styles.textButtonConfirm]}>{textConfirm ? textConfirm : 'OK'}</Text>
-                            </TouchableOpacity>
-                        )}
-                    </View>
-                </Animated.View>
-            </TouchableOpacity>
-        </Modal>
+
+        <Animated.View
+            {...panResponder.panHandlers}
+            style={[styles.container, {
+                backgroundColor: option ? ColorTheme[option].backgroundColor : '#fff',
+                height: varflashMessageHeight
+            },
+            { transform: [{ translateY: valueXY }] },
+            ]}>
+
+            {title != '' && (<Text style={[styles.title, {
+                textAlign: TitleTextAlign ? TitleTextAlign : 'center',
+                color: option ? '#fff' : '#333'
+            }]}>{title}</Text>)}
+
+            <Text style={[styles.message, {
+                textAlign: MessageTextAlign ? MessageTextAlign : 'center',
+                color: option ? '#fff' : '#666'
+            }]}>{message}</Text>
+
+            <View style={styles.containerButtons}>
+                {textCancel && (
+                    <TouchableOpacity style={[styles.button, styles.buttonCancel]} onPress={() => closeModal('cancel')}>
+                        <Text style={[styles.textButton, styles.textButtonCancel]}>{textCancel}</Text>
+                    </TouchableOpacity>
+                )}
+                {textConfirm && (
+                    <TouchableOpacity style={[styles.button, styles.buttonConfirm]} onPress={() => closeModal('confirm')}>
+                        <Text style={[styles.textButton, styles.textButtonConfirm]}>{textConfirm ? textConfirm : 'OK'}</Text>
+                    </TouchableOpacity>
+                )}
+            </View>
+        </Animated.View>
+
     );
 };

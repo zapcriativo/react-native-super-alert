@@ -11,7 +11,7 @@ const initialState = {
   settings: {
     type: 'Alert',
     textConfirm: 'Ok',
-    textCancel: null
+    textCancel: null,
   }
 };
 

@@ -50,7 +50,7 @@ export default (props) => {
         <Modal
             visible={visible}
             transparent
-            animationType="none"
+            animationType="fade"
             supportedOrientations={SUPPORTED_ORIENTATIONS}
         >
             <TouchableOpacity activeOpacity={1} style={styles.BackgroundMask}>

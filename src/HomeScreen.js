@@ -37,7 +37,7 @@ function HomeScreen({ navigation }) {
             'Simple Alert Top',
             "Hello, I'm the example of Simple Alert from top",
             {
-              SlideFrom: 'top',
+              position: 'top',
             },
           )
         }
@@ -54,7 +54,7 @@ function HomeScreen({ navigation }) {
               'Simple Alert Left',
               "Hello, I'm the example of Simple Alert from left",
               {
-                SlideFrom: 'left',
+                position: 'left',
               },
             )
           }
@@ -70,7 +70,7 @@ function HomeScreen({ navigation }) {
               'Simple Alert Right',
               "Hello, I'm the example of Simple Alert from right",
               {
-                SlideFrom: 'right',
+                position: 'right',
               },
             )
           }
@@ -87,7 +87,7 @@ function HomeScreen({ navigation }) {
             'Simple Alert Top',
             "Hello, I'm the example of Simple Alert from bottom",
             {
-              SlideFrom: 'bottom',
+              position: 'bottom',
             },
           )
         }
@@ -114,7 +114,7 @@ function HomeScreen({ navigation }) {
         <Text style={styles.buttonText}>Confirm Alert</Text>
       </TouchableOpacity>
 
-      {/* BOTTOM ALERT ================================== */}
+      {/* BOTTOM SHEET ALERT ================================== */}
       <TouchableOpacity
         style={[styles.buttonStyle, { backgroundColor: '#a065c2' }]}
         onPress={() =>
@@ -136,12 +136,50 @@ function HomeScreen({ navigation }) {
       </TouchableOpacity>
 
 
-      {/* EXAMPLE CONFIRM ================================== */}
+      {/* EXAMPLE FLASH  ================================== */}
       <TouchableOpacity
         style={[styles.buttonStyle, { backgroundColor: '#2185b8' }]}
         onPress={() =>
           alert(
-            'Title Message',
+            'Title',
+            'This is model of default alert, thanks for use the component',
+            {
+              type: 'flashmessage',
+            },
+          )
+        }
+      >
+        <Text style={styles.buttonText}>Flash Message</Text>
+      </TouchableOpacity>
+
+
+      {/* EXAMPLE FLASH SUCCESS  ================================== */}
+      <TouchableOpacity
+        style={[styles.buttonStyle, { backgroundColor: '#2185b8' }]}
+        onPress={() =>
+          alert(
+            'Title',
+            'This is model of default alert, thanks for use the component',
+            {
+              type: 'flashmessage',
+              option: 'danger', //"success" (green), "warning" (orange), "danger" (red), "info" (blue) and "default" (white).
+              timeout: 1, 
+            },
+          )
+        }
+      >
+        <Text style={styles.buttonText}>Flash Message Success</Text>
+      </TouchableOpacity>
+
+
+
+
+      {/* EXAMPLE FLASH MESSAGE COMPLETE ================================== */}
+      <TouchableOpacity
+        style={[styles.buttonStyle, { backgroundColor: '#2185b8' }]}
+        onPress={() =>
+          alert(
+            'Title',
             'This is model of default alert, thanks for use the component',
             {
               type: 'flashmessage',
@@ -149,16 +187,17 @@ function HomeScreen({ navigation }) {
               textCancel: 'Cancelar',
               TitleTextAlign:  'left',
               MessageTextAlign: 'left',
-              // flashMessageHeight: 120,
-              flashMessageTimeout: 5, 
+              flashMessageHeight: 120,
+              timeout: 10, 
               onConfirm: () => confirmClick(),
               onCancel: () => cancelClick()
             },
           )
         }
       >
-        <Text style={styles.buttonText}>Flash Message</Text>
+        <Text style={styles.buttonText}>Flash Message Complete</Text>
       </TouchableOpacity>
+
 
 
       {/* EXAMPLE REACT NAVIGATION ================================== */}

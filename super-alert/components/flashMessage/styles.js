@@ -16,27 +16,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   },
   container: {
-    backgroundColor: "#FFF",
-    maxWidth: windowWidth,
+    backgroundColor: "#fff",
     width: windowWidth,
     height: 180,
-    marginHorizontal: 30,
     position: 'absolute',
     padding: 10,
-    paddingTop: STATUSBAR_HEIGHT + 5
+    paddingTop: STATUSBAR_HEIGHT + 5,
   },
-
   title: {
-    fontSize: 18,
+    fontSize: 16,
     color: "#333",
     fontWeight: "500",
-    marginVertical: 5
+    marginTop: 10
   },
 
   message: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#666",
-    marginVertical: 5
+    marginTop: 10
   },
 
   containerButtons: {
