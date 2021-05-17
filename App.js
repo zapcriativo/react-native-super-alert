@@ -14,28 +14,34 @@ export default function App() {
   const refInput = useRef(null);
   const Stack = createStackNavigator();
 
-  // onClose = () => { console.log('maooeeee') }
+  const customStyle = {
+    container: {
+      backgroundColor: '#000',
+    },
+    buttonCancel: {
+      backgroundColor: 'orange',
+    },
+    buttonConfirm: {
+      backgroundColor: 'green',
+    },
+    title: {
+      color: 'yellow'
+    },
+    message: {
+      color: 'pink'
+    }
+  }
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home" >
-        <Stack.Screen name="Home" component={HomeScreen}  />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
         <Stack.Screen name="Details" component={DetailScreen} />
       </Stack.Navigator>
       <SuperAlert />
     </NavigationContainer>
   );
-
-
-  // return (
-  // <View style={styles.container}>
-  //   <StatusBar style="auto" />
-  //   <Home ref={refInput} />
-  //   <SuperAlert onClose={onClose} />
-  // </View>
-  // );
 }
-
 
 const styles = StyleSheet.create
   ({

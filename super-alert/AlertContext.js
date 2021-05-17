@@ -18,17 +18,19 @@ const initialState = {
 export const alertContext = createContext(initialState);
 const { Provider } = alertContext;
 
-export default props => {
-  const [alertState, setAlertState] = useState(initialState);
+export default (props) => {
 
+  const [alertState, setAlertState] = useState(initialState);
+  const { customStyle } = props;
   // SET ALERT PARAMS INSIDE STATE
   alert = (title, message, settings) => {
-    setAlertState({
-      isOpen: true,
-      title,
-      message,
-      settings: settings ? settings : initialState.settings,
-    });
+    if (alertState.isOpen) return false;
+      setAlertState({
+        isOpen: true,
+        title,
+        message,
+        settings: settings ? settings : initialState.settings,
+      });
   };
 
   // CLOSE ALERT
@@ -55,19 +57,19 @@ export default props => {
         switch (alertState.settings.type) {
           case 'alert':
             return (
-              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} />
+              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} customStyle={customStyle} />
             )
           case 'bottomsheet':
             return (
-              <BottomSheet {...alertState} close={close} confirm={confirm} cancel={cancel} />
+              <BottomSheet {...alertState} close={close} confirm={confirm} cancel={cancel} customStyle={customStyle} />
             )
           case 'flashmessage':
             return (
-              <FlashMessage {...alertState} close={close} confirm={confirm} cancel={cancel} />
+              <FlashMessage {...alertState} close={close} confirm={confirm} cancel={cancel} customStyle={customStyle} />
             )
           default:
             return (
-              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} />
+              <Alert {...alertState} close={close} confirm={confirm} cancel={cancel} customStyle={customStyle} />
             )
         }
       })()}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { Animated, Text, TouchableOpacity, Modal, View, Dimensions, PanResponder } from 'react-native';
 
 import styles from "./styles";
@@ -14,7 +14,7 @@ const SUPPORTED_ORIENTATIONS = [
 
 export default (props) => {
 
-    const { isOpen, close, confirm, cancel, title, message, settings } = props;
+    const { isOpen, close, confirm, cancel, title, message, settings, customStyle } = props;
     const { draggable, option, timeout, disableTimeout, TitleTextAlign, MessageTextAlign, textConfirm, textCancel, flashMessageHeight, useNativeDriver } = props.settings;
     const [visible, setVisible] = useState(isOpen)
 
@@ -49,11 +49,11 @@ export default (props) => {
         PanResponder.create({
             onStartShouldSetPanResponder: () => draggable ? draggable : true,
             onPanResponderMove: (event, gestureState) => {
-                valueXY.setValue(Math.min(Math.max(gestureState.dy,varflashMessageHeight),0))
+                valueXY.setValue(Math.min(Math.max(gestureState.dy, varflashMessageHeight), 0))
             },
             onPanResponderRelease: (e, gesture) => {
                 if (gesture.vy >= 0) return
-                    closeModal('close')
+                closeModal('close')
             }
         })
     ).current;
@@ -71,6 +71,10 @@ export default (props) => {
             }, timeout ? timeout * 1000 : 5 * 1000);
         })
     }, [visible])
+
+    function alerta() {
+        console.log('call')
+    }
 
 
     // CLOSE ANIMATION 
@@ -98,11 +102,12 @@ export default (props) => {
         })
     }
     return (
-
         <Animated.View
             {...panResponder.panHandlers}
-            style={[styles.container, {
-                backgroundColor: option ? ColorTheme[option].backgroundColor : '#fff',
+            style={[styles.container,
+            customStyle ? customStyle.container : null,
+            {
+                backgroundColor: option ? ColorTheme[option].backgroundColor : customStyle ? customStyle.container.backgroundColor : '#fff',
                 height: varflashMessageHeight
             },
             { transform: [{ translateY: valueXY }] },
@@ -110,12 +115,12 @@ export default (props) => {
 
             {title != '' && (<Text style={[styles.title, {
                 textAlign: TitleTextAlign ? TitleTextAlign : 'center',
-                color: option ? '#fff' : '#333'
+                color: option ? '#fff' : customStyle ? customStyle.title.color : '#333'
             }]}>{title}</Text>)}
 
             <Text style={[styles.message, {
                 textAlign: MessageTextAlign ? MessageTextAlign : 'center',
-                color: option ? '#fff' : '#666'
+                color: option ? '#fff' : customStyle ? customStyle.message.color : '#666'
             }]}>{message}</Text>
 
             <View style={styles.containerButtons}>
