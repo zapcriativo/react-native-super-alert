@@ -1,4 +1,4 @@
-![Screenshot](https://imgur.com/LGauwG0)
+![Screenshot](https://i.imgur.com/LGauwG0.png)
 
 ### React Native Super Modal is a component where you can use various types of alerts and notifications without having to import the library on all screens..
 
