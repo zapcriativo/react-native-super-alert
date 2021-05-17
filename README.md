@@ -27,7 +27,7 @@ export default function App() {
 ```
 ### NOTE: This component will replace the default (alert) action from React Native
 
-## Usage
+# Usage
 
 ##### After import Super Modal in Root of application, you can call the component from any using
 ```jsx
@@ -38,13 +38,13 @@ export default function App() {
 ```
 ## Types of modal
 
-#Simple 
+# Simple 
 
-#Confirm 
+# Confirm 
 
-#BottomSheet
+# BottomSheet
 
-#Flash Message
+# Flash Message
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
