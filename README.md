@@ -15,17 +15,18 @@ yarn add react-native-super-alert
 ```jsx
 import SuperAlert from "react-native-super-alert";
 
-
 export default function App() {
     return (
             <View>
                 <AppContainer /> 
-                <SuperAlert onClose={onClose} /> {/* <--- Load Super Modal is here */}
+                <SuperAlert /> {/* <--- Load Super Modal is here */}
             </View>
         );
     }
 }
 ```
+### NOTE: This component will replace the default (alert) action from React Native
+
 ## Usage
 
 ##### After import Super Modal in Root of application, you can call the component from any using
@@ -35,8 +36,15 @@ export default function App() {
         "This is a Super Alert", // This is a alert message
     )
 ```
-## NOTE: This component will replace the default (alert) action from React Native
+## Types of modal
 
+#Simple 
+
+#Confirm 
+
+#BottomSheet
+
+#Flash Message
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
