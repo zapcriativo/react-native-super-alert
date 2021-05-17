@@ -38,13 +38,13 @@ export default function App() {
 ```
 ## Types of modal
 
-# Simple 
+### Simple 
 
-# Confirm 
+### Confirm 
 
-# BottomSheet
+### BottomSheet
 
-# Flash Message
+### Flash Message
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
