@@ -24,7 +24,7 @@ export default (props) => {
   const { customStyle } = props;
   // SET ALERT PARAMS INSIDE STATE
   alert = (title, message, settings) => {
-    alertState.isOpen ? setAlertState(initialState) :
+    if (alertState.isOpen) return false;
       setAlertState({
         isOpen: true,
         title,

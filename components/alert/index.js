@@ -118,17 +118,17 @@ export default (props) => {
                     customStyle ? customStyle.container : null,
                     { transform: position ? valueXY.getTranslateTransform() : [{ scale: springValue }] }
                 ]}>
-                    <Text style={[styles.title, customStyle.title ? customStyle.title : null]}>{title}</Text>
-                    <Text style={[styles.message, customStyle.message ? customStyle.message : null]}>{message}</Text>
+                    <Text style={[styles.title, customStyle ? customStyle.title : null]}>{title}</Text>
+                    <Text style={[styles.message, customStyle ? customStyle.message : null]}>{message}</Text>
 
                     <View style={styles.containerButtons}>
                         {textCancel && (
-                            <TouchableOpacity style={[styles.button, styles.buttonCancel, customStyle.buttonCancel ? customStyle.buttonCancel : null]} onPress={() => closeModal('cancel')}>
-                                <Text style={[styles.textButton, styles.textButtonCancel, customStyle.textButtonCancel ? customStyle.textButtonCancel : null]}>{textCancel}</Text>
+                            <TouchableOpacity style={[styles.button, styles.buttonCancel, customStyle ? customStyle.buttonCancel : null]} onPress={() => closeModal('cancel')}>
+                                <Text style={[styles.textButton, styles.textButtonCancel, customStyle ? customStyle.textButtonCancel : null]}>{textCancel}</Text>
                             </TouchableOpacity>
                         )}
-                        <TouchableOpacity style={[styles.button, styles.buttonConfirm, customStyle.buttonConfirm ? customStyle.buttonConfirm : null]} onPress={() => closeModal('confirm')}>
-                            <Text style={[styles.textButton, styles.textButtonConfirm, customStyle.textButtonConfirm ? customStyle.textButtonConfirm : null]}>{textConfirm ? textConfirm : 'OK'}</Text>
+                        <TouchableOpacity style={[styles.button, styles.buttonConfirm, customStyle ? customStyle.buttonConfirm : null]} onPress={() => closeModal('confirm')}>
+                            <Text style={[styles.textButton, styles.textButtonConfirm, customStyle ? customStyle.textButtonConfirm : null]}>{textConfirm ? textConfirm : 'OK'}</Text>
                         </TouchableOpacity>
                     </View>
                 </Animated.View>

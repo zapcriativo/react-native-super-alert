@@ -107,7 +107,7 @@ export default (props) => {
             style={[styles.container,
             customStyle ? customStyle.container : null,
             {
-                backgroundColor: option ? ColorTheme[option].backgroundColor : customStyle.container.backgroundColor ? customStyle.container.backgroundColor : '#fff',
+                backgroundColor: option ? ColorTheme[option].backgroundColor : customStyle ? customStyle.container.backgroundColor : '#fff',
                 height: varflashMessageHeight
             },
             { transform: [{ translateY: valueXY }] },
@@ -115,12 +115,12 @@ export default (props) => {
 
             {title != '' && (<Text style={[styles.title, {
                 textAlign: TitleTextAlign ? TitleTextAlign : 'center',
-                color: option ? '#fff' : customStyle.title.color ? customStyle.title.color : '#333'
+                color: option ? '#fff' : customStyle ? customStyle.title.color : '#333'
             }]}>{title}</Text>)}
 
             <Text style={[styles.message, {
                 textAlign: MessageTextAlign ? MessageTextAlign : 'center',
-                color: option ? '#fff' : customStyle.message.color ? customStyle.message.color : '#666'
+                color: option ? '#fff' : customStyle ? customStyle.message.color : '#666'
             }]}>{message}</Text>
 
             <View style={styles.containerButtons}>
