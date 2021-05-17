@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/zapcriativo/react-native-super-alert/blob/main/screenshots/rn_media_modal.png?raw=true)
+![Screenshot](https://imgur.com/LGauwG0)
 
 ### React Native Super Modal is a component where you can use various types of alerts and notifications without having to import the library on all screens..
 
