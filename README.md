@@ -47,6 +47,13 @@ Example for default alert without confirm
     )
 ```
 
+### Using the default alert in corners
+
+| Prop             | Type     | Description                                              | Default                    |
+| ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
+| position         | strung   | Using alert in corners (Top, Bottom, Left, Right)        | ''                         |
+
+
 ### Using confirm and cancel action
 
 ![Confirm](https://media.giphy.com/media/5oiZMAB2XG4Mqm8vxc/giphy.gif)
@@ -109,7 +116,7 @@ Note: You can use the confirm params in all alert types, and in the default aler
 # Global Props 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
-| Type             | string   | Select the type of alert ('alert','bottomsheet','flashmessage')                                | 'alert'|
+| Type             | string   | Select the type of alert (alert,bottomsheet,flashmessage)                                | 'alert'|
 | useNativeDriver  | boolean  | Use native driver                                        | false                      |
 | textConfirm      | string   | Button confirm label                                     | 'OK'                       |
 | textCancel       | string   | Button cancel label                                      | ''                         |
