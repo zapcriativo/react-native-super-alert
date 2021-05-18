@@ -4,7 +4,7 @@
 
 ![downloads](https://img.shields.io/npm/dm/react-native-super-alert)
 
-[![downloads](https://img.shields.io/npm/dm/react-native-super-alert)](https://www.npmjs.com/package/react-native-super-alert)
+![downloads](https://img.shields.io/npm/dm/react-native-super-alert)(https://www.npmjs.com/package/react-native-super-alert)
 
 # Installation
 ```
