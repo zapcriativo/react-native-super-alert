@@ -46,13 +46,25 @@ Example for default alert without confirm
         "This is a Super Alert", // This is a alert message
     )
 ```
+------------
 
 ### Using the default alert in corners
+
+```jsx
+    alert(
+        'Hello!!', // This is a title
+        "This is a Super Alert", // This is a alert message
+        {
+            position: 'top' // top, bottom, left or right,
+        },
+    )
+```
 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
 | position         | strung   | Using alert in corners (Top, Bottom, Left, Right)        | ''                         |
 
+------------
 
 ### Using confirm and cancel action
 
@@ -103,11 +115,33 @@ Note: You can use the confirm params in all alert types, and in the default aler
 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
-| bottomSheetHeight| number   | Alert BottomSheet height                                 | 180                        |
+| bottomSheetHeight (Optional)   | number   | Alert BottomSheet height                                  | 180                        |
+
+------------
 
 ### Flash Message
 
-![Alt Text](https://media.giphy.com/media/LoLCAkNZ23waSThMLq/giphy.gif  )
+![Alt Text](https://media.giphy.com/media/LoLCAkNZ23waSThMLq/giphy.gif)
+```jsx
+    alert(
+        'Title',
+        'This is model of default alert, thanks for use the component',
+        {
+            type: 'flashmessage',
+            option: 'danger', // danger | warning | info | success
+            timeout: 3,
+        },
+    )
+```
+
+## Props of Flash Message
+
+| Prop             | Type     | Description                                              | Default                    |
+| ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
+| flashMessageHeight (Optional)   | number   | Flash Message height                      | 110                        |
+| option (Optional) | string   | Select the Color Scheme (danger,warning,info or success)                              | ''                        |
+| timeout          | number   | Total of seconds to close the alert                      | 10
+
 
 ### Example with React Navigation Component
 
