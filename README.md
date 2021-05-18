@@ -36,7 +36,7 @@ export default function App() {
 ![Default](https://media.giphy.com/media/FVO46g4nlC5Ys9RtFt/giphy.gif)
 
 ```jsx
-   // alert('Title of alert', 'Message of alert', { Object with params (Confirm action and other types change)  })
+   // alert('Title of alert', 'Message of alert', { Object props })
 ```
 Example for default alert without confirm
 
@@ -47,7 +47,7 @@ Example for default alert without confirm
     )
 ```
 
-### Using confirm or cancel action action
+### Using confirm and cancel action
 
 ![Confirm](https://media.giphy.com/media/5oiZMAB2XG4Mqm8vxc/giphy.gif)
 
@@ -57,10 +57,10 @@ Example
         'Hello!!', // This is a title
         "This is a Super Alert", // This is a alert message
         {
-            textConfirm: 'Confirmar',
-            textCancel: 'Cancelar',
-            onConfirm: () => confirmClick(),
-            onCancel: () => cancelClick()
+            textConfirm: 'Confirm', // Label of button confirm
+            textCancel: 'Cancel', // Label of button cancel
+            onConfirm: () => confirmClick(), // Call your confirm function 
+            onCancel: () => cancelClick() // Call your cancel function 
         },
     )
 ```
@@ -88,13 +88,15 @@ Note: You can use the confirm params in all alert types, and in the default aler
         'Hello!!', // This is a title
         "This is a Super Alert", // This is a alert message
         {
-            textConfirm: 'Confirmar',
-            textCancel: 'Cancelar',
-            onConfirm: () => confirmClick(),
-            onCancel: () => cancelClick()
+            type: 'bottomsheet',
         },
     )
 ```
+## Props of BottomSheet
+
+| Prop             | Type     | Description                                              | Default                    |
+| ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
+| bottomSheetHeight| number   | Alert BottomSheet height                                 | 180                        |
 
 ### Flash Message
 
@@ -103,6 +105,13 @@ Note: You can use the confirm params in all alert types, and in the default aler
 ### Example with React Navigation Component
 
 ![Alt Text](https://media.giphy.com/media/kWLj0yJfFLOPWM4vqe/giphy.gif)
+
+# Global Props 
+| Prop             | Type     | Description                                              | Default                    |
+| ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
+| useNativeDriver  | boolean  | Use native driver                                        | false                      |
+| textConfirm      | string   | Button confirm label                                     | false                      |
+| textCancel       | string   | Button cancel label                                      | false                      |
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
