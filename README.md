@@ -33,10 +33,10 @@ export default function App() {
 
 ##### After import Super alert in Root of application, you can call the component from any using
 
-![Default](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Default](https://media.giphy.com/media/FVO46g4nlC5Ys9RtFt/giphy.gif)
 
 ```jsx
-   // alert('Title of alert', 'Message of alert', { 'Object with params (Confirm action and other types change)'  })
+   // alert('Title of alert', 'Message of alert', { Object with params (Confirm action and other types change)  })
 ```
 Example for default alert without confirm
 
@@ -49,7 +49,7 @@ Example for default alert without confirm
 
 ### Using confirm or cancel action action
 
-![Confirm](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Confirm](https://media.giphy.com/media/5oiZMAB2XG4Mqm8vxc/giphy.gif)
 
 Example
 ```jsx
@@ -81,11 +81,24 @@ Note: You can use the confirm params in all alert types, and in the default aler
 
 ### BottomSheet
 
-![BottomSheet](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![BottomSheet](https://media.giphy.com/media/GevNv6PgKnxeFqM1Ai/giphy.gif)
+
+```jsx
+    alert(
+        'Hello!!', // This is a title
+        "This is a Super Alert", // This is a alert message
+        {
+            textConfirm: 'Confirmar',
+            textCancel: 'Cancelar',
+            onConfirm: () => confirmClick(),
+            onCancel: () => cancelClick()
+        },
+    )
+```
 
 ### Flash Message
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://media.giphy.com/media/LoLCAkNZ23waSThMLq/giphy.gif  )
 
 ### Example with React Navigation Component
 
