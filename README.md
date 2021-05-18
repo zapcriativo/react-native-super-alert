@@ -33,6 +33,8 @@ export default function App() {
 
 ##### After import Super alert in Root of application, you can call the component from any using
 
+![Default](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 ```jsx
    // alert('Title of alert', 'Message of alert', { 'Object with params (Confirm action and other types change)'  })
 ```
@@ -46,6 +48,8 @@ Example for default alert without confirm
 ```
 
 ### Using confirm or cancel action action
+
+![Confirm](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 Example
 ```jsx
@@ -77,7 +81,15 @@ Note: You can use the confirm params in all alert types, and in the default aler
 
 ### BottomSheet
 
+![BottomSheet](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 ### Flash Message
+
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+### Example with React Navigation Component
+
+![Alt Text](https://media.giphy.com/media/kWLj0yJfFLOPWM4vqe/giphy.gif)
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
