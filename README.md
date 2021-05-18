@@ -1,6 +1,6 @@
 ![Screenshot](https://i.imgur.com/LGauwG0.png)
 
-### React Native Super Modal is a component where you can use various types of alerts and notifications without having to import the library on all screens..
+### React Native Super Alert is a component where you can use various types of alerts and notifications without having to import the library on all screens..
 
 # Installation
 ```
@@ -19,7 +19,7 @@ export default function App() {
     return (
             <View>
                 <AppContainer /> 
-                <SuperAlert /> {/* <--- Load Super Modal is here */}
+                <SuperAlert /> {/* <--- Load Super Alert here */}
             </View>
         );
     }
@@ -29,18 +29,51 @@ export default function App() {
 
 # Usage
 
-##### After import Super Modal in Root of application, you can call the component from any using
+## Default alert
+
+##### After import Super alert in Root of application, you can call the component from any using
+
+```jsx
+   // alert('Title of alert', 'Message of alert', { 'Object with params (Confirm action and other types change)'  })
+```
+Example for default alert without confirm
+
 ```jsx
     alert(
         'Hello!!', // This is a title
         "This is a Super Alert", // This is a alert message
     )
 ```
-## Types of modal
 
-### Simple 
+### Using confirm or cancel action action
 
-### Confirm 
+Example
+```jsx
+    alert(
+        'Hello!!', // This is a title
+        "This is a Super Alert", // This is a alert message
+        {
+            textConfirm: 'Confirmar',
+            textCancel: 'Cancelar',
+            onConfirm: () => confirmClick(),
+            onCancel: () => cancelClick()
+        },
+    )
+```
+Then create the functions to confirm and cancel action
+
+```jsx
+  confirmClick = () => {
+    console.log('Confirm Action')
+  }
+
+  cancelClick = () => {
+    console.log('Cancel Action')
+  }
+```
+Note: You can use the confirm params in all alert types, and in the default alert the button used confirm action
+
+## Other types
 
 ### BottomSheet
 
