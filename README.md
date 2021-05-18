@@ -223,5 +223,4 @@ If you think the project is useful, please donate or give me a star!
 
 
 ## License
-
-![license](https://img.shields.io/github/license/zapcriativo/react-native-super-alert)(https://github.com/zapcriativo/react-native-super-alert/blob/main/LICENSE)
+[MIT](https://img.shields.io/github/license/zapcriativo/react-native-super-alert "MIT")
