@@ -2,7 +2,7 @@
 
 ### React Native Super Alert is a component where you can use various types of alerts and notifications without having to import the library on all screens..
 
-![image]https://img.shields.io/npm/dm/react-native-super-alert
+![downloads](https://img.shields.io/npm/dm/react-native-super-alert)
 
 # Installation
 ```
