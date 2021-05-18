@@ -22,7 +22,8 @@
     "react-native-screens": "~3.0.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4",
-    "react-navigation-stack": "^2.10.4"
+    "react-navigation-stack": "^2.10.4",
+    "react-native-super-alert": "https://github.com/zapcriativo/react-native-super-alert.git"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

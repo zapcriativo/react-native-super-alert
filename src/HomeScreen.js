@@ -167,7 +167,7 @@ function HomeScreen({ navigation }) {
               {
                 type: 'flashmessage',
                 option: 'success',
-                timeout: 10,
+                timeout: 3,
               },
             )
           }
@@ -185,7 +185,7 @@ function HomeScreen({ navigation }) {
               {
                 type: 'flashmessage',
                 option: 'danger',
-                timeout: 10,
+                timeout: 3,
               },
             )
           }
@@ -203,7 +203,7 @@ function HomeScreen({ navigation }) {
               {
                 type: 'flashmessage',
                 option: 'warning',
-                timeout: 10,
+                timeout: 3,
               },
             )
           }
@@ -221,7 +221,7 @@ function HomeScreen({ navigation }) {
               {
                 type: 'flashmessage',
                 option: 'info',
-                timeout: 10,
+                timeout: 3,
               },
             )
           }
@@ -243,7 +243,7 @@ function HomeScreen({ navigation }) {
                 TitleTextAlign: 'left',
                 MessageTextAlign: 'left',
                 flashMessageHeight: 120,
-                timeout: 100,
+                timeout: 3,
                 onConfirm: () => confirmClick(),
                 onCancel: () => cancelClick()
               },

@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/HomeScreen'
 import DetailScreen from './src/DetailScreen'
 
-import SuperAlert from './super-alert';
+import SuperAlert from 'react-native-super-alert';
 
 export default function App() {
 
