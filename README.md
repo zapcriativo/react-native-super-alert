@@ -4,8 +4,14 @@
 
 # Installation
 Install expo if you don't have in your computer
-
-Install de dependencies
+```
+npm install --global expo-cli
+```
+Clone the project 
+```
+git clone -b CodeExample https://github.com/zapcriativo/react-native-super-alert.git 
+```
+Install dependencies
 ```
 npm install
 ```
