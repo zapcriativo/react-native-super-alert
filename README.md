@@ -62,7 +62,7 @@ Example for default alert without confirm
 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
-| position         | strung   | Using alert in corners (Top, Bottom, Left, Right)        | ''                         |
+| position (Optional)        | strung   | Using alert in corners (Top, Bottom, Left, Right)        | ''                         |
 
 ------------
 
@@ -139,8 +139,8 @@ Note: You can use the confirm params in all alert types, and in the default aler
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
 | flashMessageHeight (Optional)   | number   | Flash Message height                      | 110                        |
-| option (Optional) | string   | Select the Color Scheme (danger,warning,info or success)                              | ''                        |
-| timeout          | number   | Total of seconds to close the alert                      | 10
+| option (Optional) | string   | Select the Color Scheme (danger,warning,info or success)| ''                         |
+| timeout (Optional)| number   | Total of seconds to close the alert                     | 5                          |
 
 
 ### Example with React Navigation Component
@@ -150,10 +150,67 @@ Note: You can use the confirm params in all alert types, and in the default aler
 # Global Props 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
-| Type             | string   | Select the type of alert (alert,bottomsheet,flashmessage)                                | 'alert'|
-| useNativeDriver  | boolean  | Use native driver                                        | false                      |
-| textConfirm      | string   | Button confirm label                                     | 'OK'                       |
-| textCancel       | string   | Button cancel label                                      | ''                         |
+| Type (Optional)            | string   | Select the type of alert (alert,bottomsheet,flashmessage)          | 'alert'|
+| useNativeDriver (Optional)  | boolean  | Use native driver                             | false                      |
+| textConfirm (Optional)     | string   | Button confirm label                           | 'OK'                       |
+| textCancel (Optional)      | string   | Button cancel label                            | ''                         |
+
+
+# Customize de Alerts 
+
+You can customize the alert according to your theme
+
+## Place your style object in the customStyle props
+
+```jsx
+<SuperAlert customStyle={customStyle} />
+```
+
+Classes of customization
+
+| Prop             | Description                                              |
+| ---------------- | -------------------------------------------------------- | 
+| container        | Customize the container style                            | 
+| buttonCancel     | Customize the button cancel style                        | 
+| buttonConfirm    | Customize the button confirm style                       | 
+| textButtonCancel | Customize the button cancel label style                  | 
+| textButtonConfirm  | Customize the button confirm label style               | 
+| title            | Customize the title text style                           | 
+| message          | Customize the message text style                         | 
+Example of custom style object 
+
+```jsx
+  const customStyle = {
+    container: {
+      backgroundColor: '#e8e8e8',
+      borderRadius: 0,
+    },
+    buttonCancel: {
+      backgroundColor: '#b51919',
+      borderRadius: 0,
+    },
+    buttonConfirm: {
+      backgroundColor: '#4490c7',
+      borderRadius: 0,
+    },
+    textButtonCancel: {
+        color: '#fff',
+        fontWeight: 'bold'
+    }
+    textButtonConfirm: {
+        color: '#fff',
+        fontWeight: 'bold'
+    }
+    title: {
+      color: '#003d69',
+      fontSize: 15
+    },
+    message: {
+      color: '#4f4f4f',
+      fontSize: 12
+    }
+  }
+```
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
