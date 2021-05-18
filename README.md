@@ -218,3 +218,11 @@ Example of custom style object
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
 
 If you think the project is useful, please donate or give me a star!
+
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=HH79BF6PQFWRW&item_name=open-source+dev+react+native-super-alert&currency_code=USD)
+
+
+## Author
+
+![license]https://img.shields.io/github/license/zapcriativo/react-native-super-alert
