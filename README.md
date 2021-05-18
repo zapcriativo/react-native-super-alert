@@ -109,9 +109,10 @@ Note: You can use the confirm params in all alert types, and in the default aler
 # Global Props 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
+| Type             | string   | Select the type of alert ('alert','bottomsheet','flashmessage')                                | 'alert'|
 | useNativeDriver  | boolean  | Use native driver                                        | false                      |
-| textConfirm      | string   | Button confirm label                                     | false                      |
-| textCancel       | string   | Button cancel label                                      | false                      |
+| textConfirm      | string   | Button confirm label                                     | 'OK'                       |
+| textCancel       | string   | Button cancel label                                      | ''                         |
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
