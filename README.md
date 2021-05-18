@@ -45,7 +45,7 @@ Example for default alert without confirm
 ```jsx
     alert(
         'Hello!!', // This is a title
-        "This is a Super Alert", // This is a alert message
+        "This is a Super Alert" // This is a alert message
     )
 ```
 ------------
@@ -58,7 +58,7 @@ Example for default alert without confirm
         "This is a Super Alert", // This is a alert message
         {
             position: 'top' // top, bottom, left or right,
-        },
+        }
     )
 ```
 
@@ -82,7 +82,7 @@ Example
             textCancel: 'Cancel', // Label of button cancel
             onConfirm: () => confirmClick(), // Call your confirm function 
             onCancel: () => cancelClick() // Call your cancel function 
-        },
+        }
     )
 ```
 Then create the functions to confirm and cancel action
@@ -96,7 +96,7 @@ Then create the functions to confirm and cancel action
     console.log('Cancel Action')
   }
 ```
-Note: You can use the confirm params in all alert types, and in the default alert the button used confirm action
+Note: You can use the confirm params in all alert types
 
 ## Other types
 
@@ -109,8 +109,8 @@ Note: You can use the confirm params in all alert types, and in the default aler
         'Hello!!', // This is a title
         "This is a Super Alert", // This is a alert message
         {
-            type: 'bottomsheet',
-        },
+            type: 'bottomsheet'
+        }
     )
 ```
 ## Props of BottomSheet
@@ -131,8 +131,8 @@ Note: You can use the confirm params in all alert types, and in the default aler
         {
             type: 'flashmessage',
             option: 'danger', // danger | warning | info | success
-            timeout: 3,
-        },
+            timeout: 3
+        }
     )
 ```
 
