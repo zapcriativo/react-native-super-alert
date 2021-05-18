@@ -4,6 +4,8 @@
 
 ![downloads](https://img.shields.io/npm/dm/react-native-super-alert)
 
+[![downloads](https://img.shields.io/npm/dm/react-native-super-alert)](https://www.npmjs.com/package/react-native-super-alert)
+
 # Installation
 ```
 npm i react-native-super-alert --save
@@ -223,4 +225,4 @@ If you think the project is useful, please donate or give me a star!
 
 
 ## License
-[MIT](https://img.shields.io/github/license/zapcriativo/react-native-super-alert "MIT")
+[MIT](https://github.com/zapcriativo/react-native-super-alert/blob/main/LICENSE "MIT")
