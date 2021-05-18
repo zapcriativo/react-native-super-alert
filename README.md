@@ -158,7 +158,7 @@ Note: You can use the confirm params in all alert types
 | textCancel (Optional)      | string   | Button cancel label                            | ''                         |
 
 
-# Customize de Alerts 
+# Customize Alerts 
 
 You can customize the alert according to your theme
 
