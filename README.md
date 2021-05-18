@@ -4,8 +4,6 @@
 
 ![downloads](https://img.shields.io/npm/dm/react-native-super-alert)
 
-![downloads](https://img.shields.io/npm/dm/react-native-super-alert)(https://www.npmjs.com/package/react-native-super-alert)
-
 # Installation
 ```
 npm i react-native-super-alert --save
@@ -35,7 +33,7 @@ export default function App() {
 
 ## Default alert
 
-##### After import Super alert in Root of application, you can call the component from any using
+##### After import Super alert in Root of application, you can call the component using the code bellow
 
 ![Default](https://media.giphy.com/media/FVO46g4nlC5Ys9RtFt/giphy.gif)
 
@@ -52,7 +50,7 @@ Example for default alert without confirm
 ```
 ------------
 
-### Using the default alert in corners
+### Loading alert from the corners of screen
 
 ```jsx
     alert(
@@ -66,7 +64,7 @@ Example for default alert without confirm
 
 | Prop             | Type     | Description                                              | Default                    |
 | ---------------- | -------- | -------------------------------------------------------- | -------------------------- |
-| position (Optional)        | strung   | Using alert in corners (Top, Bottom, Left, Right)        | ''                         |
+| position (Optional)        | string   | Using alert in corners (Top, Bottom, Left, Right)        | ''                         |
 
 ------------
 
@@ -181,6 +179,7 @@ Classes of customization
 | textButtonConfirm  | Customize the button confirm label style               | 
 | title            | Customize the title text style                           | 
 | message          | Customize the message text style                         | 
+
 Example of custom style object 
 
 ```jsx
@@ -215,6 +214,10 @@ Example of custom style object
     }
   }
 ```
+
+## Example App
+
+You can download example app from [Example App](https://github.com/zapcriativo/react-native-super-alert/tree/CodeExample "this link") this link 
 
 ## Author
 By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
