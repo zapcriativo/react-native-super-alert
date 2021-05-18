@@ -2,6 +2,8 @@
 
 ### React Native Super Alert is a component where you can use various types of alerts and notifications without having to import the library on all screens..
 
+![image]https://img.shields.io/npm/dm/react-native-super-alert
+
 # Installation
 ```
 npm i react-native-super-alert --save
@@ -196,11 +198,11 @@ Example of custom style object
     textButtonCancel: {
         color: '#fff',
         fontWeight: 'bold'
-    }
+    },
     textButtonConfirm: {
         color: '#fff',
         fontWeight: 'bold'
-    }
+    },
     title: {
       color: '#003d69',
       fontSize: 15
