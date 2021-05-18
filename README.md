@@ -3,15 +3,15 @@
 ### Super Alert APP Example
 
 # Installation
-## Install expo if you don't have in your computer
+## 1 - Install expo if you don't have in your computer
 ```
 npm install --global expo-cli
 ```
-## Clone the project 
+## 2 - Clone the project 
 ```
 git clone -b CodeExample https://github.com/zapcriativo/react-native-super-alert.git 
 ```
-## Install dependencies
+## 3 - Install dependencies
 ```
 npm install
 ```
@@ -19,7 +19,7 @@ or
 ```
 yarn add
 ```
-## Run expo project
+## 4 - Run expo project
 IOS
 ```
 npm ios or yarn ios
