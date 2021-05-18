@@ -20,10 +20,10 @@
     "react-native-reanimated": "~2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "~3.0.0",
+    "react-native-super-alert": "^0.1.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4",
-    "react-navigation-stack": "^2.10.4",
-    "react-native-super-alert": "https://github.com/zapcriativo/react-native-super-alert.git"
+    "react-navigation-stack": "^2.10.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
