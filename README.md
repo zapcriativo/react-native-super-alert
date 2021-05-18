@@ -219,10 +219,9 @@ By [Alan Ribeiro](https://github.com/zapcriativo "Alan Ribeiro")
 
 If you think the project is useful, please donate or give me a star!
 
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=HH79BF6PQFWRW)
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=HH79BF6PQFWRW&item_name=open-source+dev+react+native-super-alert&currency_code=USD)
 
+## License
 
-## Author
-
-![license]https://img.shields.io/github/license/zapcriativo/react-native-super-alert
+![license](https://img.shields.io/github/license/zapcriativo/react-native-super-alert)(https://github.com/zapcriativo/react-native-media-modal/blob/main/LICENSE)
